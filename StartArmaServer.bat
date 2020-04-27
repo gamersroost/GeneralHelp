@@ -19,7 +19,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 echo **++~~ Your Arma 3 server is now Starting - To restart server, close the Arma window ~~++**
 timeout 5
-start "Arma3Wasteland" /min /wait %A3serverPath%\arma3server.exe -mod=%modname%; -servermod=%Servermod%; -config=config.cfg -ip=%ServerIPAddress% -port=%port% -bepath=battleye -profiles=%yourservername% -cfg=basic.cfg -name=%yourservername%  -autoinit
+start "Arma3Wasteland" /min /wait %A3serverPath%\arma3server.exe -mod=%modname%; -servermod=%Servermod%; -config=config.cfg -ip=%ServerIPAddress% -port=%port% -bepath=battleye -profiles=%yourservername% -cfg=basic.cfg -name=%yourservername%
 CLS
 echo **++~~ Your Arma 3 server is now Re-starting Please wait five seconds.  ~~++**
 timeout 5
