@@ -5,12 +5,22 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 	:: DEFINE the following variables where applicable to your server
-	SET modname=ENTER YOUR MODS HERE
-	SET Servermod=ENTER SERVER MOD NAMES HERE
-	SET yourservername=ENTER YOUR SERVER NAME HERE
-	SET A3serverPath=ADD SERVER PATH HERE
-	SET ServerIPAddress=127.0.0.1
-	SET port=EnterServerPortHERE
+	SET modname="ENTER YOUR MODS HERE"
+	SET Servermod="ENTER SERVER MOD NAMES HERE"
+	SET yourservername="ENTER YOUR SERVER NAME HERE"
+	SET A3serverPath="ADD SERVER filePath HERE"
+	SET ServerIPAddress="127.0.0.1"
+	SET port="EnterServerPortHERE"
+	set process_name=arma3server.exe
+	set process_pid=
+
+tasklist /nh /fi "imagename eq %process_name%" | find /i "%process_name%" > nul && set process_pid=%errorlevel%
+
+if "%process_pid%" == "0" (
+    echo Process %process_name% is not running.
+) else (
+    echo Process %process_name% is running with PID %process_pid%.
+)
 		
 
 :: _________________________________________________________
@@ -23,4 +33,5 @@ start "Arma3Wasteland" /min /wait %A3serverPath%\arma3server.exe -mod=%modname%;
 CLS
 echo **++~~ Your Arma 3 server is now Re-starting Please wait five seconds.  ~~++**
 timeout 5
+
 goto Serverstart
